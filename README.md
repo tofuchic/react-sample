@@ -1,2 +1,3 @@
-# temp
-Created with CodeSandbox
+# react-sample
+
+Created with [CodeSandbox](https://codesandbox.io/)
