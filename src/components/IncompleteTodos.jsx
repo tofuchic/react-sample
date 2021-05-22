@@ -1,11 +1,18 @@
 import React from "react";
-// 不要
-// import "../style.css";
+
+const incompletArea = {
+  backgroundColor: "aquamarine",
+  width: "400px",
+  minHeight: "200px",
+  padding: "8px",
+  margin: "8px",
+  borderRadius: "8px"
+};
 
 export const IncompleteTodos = (props) => {
   const { incompleteTodos, onClickComplete, onClickDelete } = props;
   return (
-    <div className="incomplete-area">
+    <div style={incompletArea}>
       <p className="title">未完了のToDo</p>
       <ul>
         {incompleteTodos.map((todo, index) => {

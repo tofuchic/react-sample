@@ -1,15 +1,20 @@
 import React from "react";
-// 不要
-// import "../style.css";
+
+const inputArea = {
+  backgroundColor: "aqua",
+  width: "400px",
+  height: "30px",
+  padding: "8px",
+  margin: "8px",
+  borderRadius: "8px"
+};
 
 export const InputTodo = (props) => {
   const { todoText, onChange, onClick } = props;
   return (
-    <div className="input-area">
+    <div style={inputArea}>
       <input placeholder="ToDoを入力" value={todoText} onChange={onChange} />
-      <button id="add-button" onClick={onClick}>
-        追加
-      </button>
+      <button onClick={onClick}>追加</button>
     </div>
   );
 };
