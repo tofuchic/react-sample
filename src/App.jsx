@@ -3,6 +3,7 @@ import "./style.css";
 import { InputTodo } from "./components/InputTodo";
 import { IncompleteTodos } from "./components/IncompleteTodos";
 import { CompleteTodos } from "./components/CompleteTodos";
+import { ColorfulMessage } from "./components/ColorfulMessage";
 
 // ToDo App
 export const App = () => {
@@ -13,7 +14,7 @@ export const App = () => {
     setTodoText(event.target.value);
   };
   const onClickAddTodo = () => {
-    if (todoText === "") return;
+    if (todoText === "" || incompleteTodos.length >= 5) return;
     const newTodos = [...incompleteTodos, todoText];
     setIncompleteToDos(newTodos);
     setTodoText("");
@@ -41,6 +42,7 @@ export const App = () => {
     const newTodos = [...incompleteTodos, todo];
     setIncompleteToDos(newTodos);
   };
+
   return (
     <>
       <InputTodo
@@ -48,6 +50,12 @@ export const App = () => {
         onChange={onChangeTodoText}
         onClick={onClickAddTodo}
       />
+      {incompleteTodos.length >= 5 && (
+        <ColorfulMessage
+          color="red"
+          message="登録できるToDoの数は5つまでにしましょう。"
+        ></ColorfulMessage>
+      )}
       <IncompleteTodos
         incompleteTodos={incompleteTodos}
         onClickComplete={onClickComplete}
